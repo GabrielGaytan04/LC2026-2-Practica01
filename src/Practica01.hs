@@ -12,11 +12,36 @@ data Shape = Circle Float | --representa el radio
 
 --Funcion que calcula el area de las figuras
 area :: Shape -> Float
-area = undefined
+--Circulo
+area (Circle radio) =  pi *  radio ** 2
+--Cuadrado
+area (Square lado) = lado * lado 
+--Rectangulo
+area (Rectangle base altura) = base * altura  
+--Triangulo
+area (Triangle side) = ((sqrt 3) / 4) * (side ** 2)
+--Trapecio
+area (Trapeze mayor menor altura) =  ((mayor + menor) * altura) / 2
+
 
 --Funcion que calcula el perimetro de las figuras
 perimeter :: Shape -> Float
-perimeter = undefined
+--Circulo
+perimeter (Circle radius) =  (2 * pi) * radius
+--Cuadrado
+perimeter (Square sideS) = 4 * sideS
+--Rectangulo
+perimeter (Rectangle baseR heightR) = (2 * baseR) + (2 * heightR)
+--Triangulo
+perimeter (Triangle sideT) = 3 * sideT
+--Trapecio
+{-
+Al trabajar con un isoceles, podemos asumir que la altura es igual al lado c que falta 
+Fuente de consulta: https://www.universoformulas.com/matematicas/geometria/perimetro-trapecio/
+-}
+perimeter (Trapeze maximum minimum heightTrap) = maximum + minimum + (2 * heightTrap) 
+
+
 
 
 --Ejercicio 2 (Les toca arreglar el sinonimo)
