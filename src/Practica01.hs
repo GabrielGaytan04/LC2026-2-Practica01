@@ -10,6 +10,13 @@ data Shape = Circle Float | --representa el radio
             Trapeze Float Float Float --representa base mayor, base menor y altura
             deriving (Show)
 
+{-
+Nota: Para el calculo de perimetro, cambie el nombre de los parametros 
+por su version en ingles para evitar confusiones con las entradas de la funcion
+area.
+Area de figuras recuperado de: https://www.webcolegios.com/file/3513b6.pdf 
+-}
+
 --Funcion que calcula el area de las figuras
 area :: Shape -> Float
 --Circulo
@@ -39,9 +46,7 @@ perimeter (Triangle sideT) = 3 * sideT
 Al trabajar con un isoceles, podemos asumir que la altura es igual al lado c que falta 
 Fuente de consulta: https://www.universoformulas.com/matematicas/geometria/perimetro-trapecio/
 -}
-perimeter (Trapeze maximum minimum heightTrap) = maximum + minimum + (2 * heightTrap) 
-
-
+perimeter (Trapeze maximum minimum heightTrap) = maximum + minimum + (2 * heightTrap)
 
 
 --Ejercicio 2 (Les toca arreglar el sinonimo)
@@ -56,7 +61,16 @@ from0 :: Point -> Float
 from0 = undefined
 
 --Ejercicio 3
-data Haskellium = Undefined
+--Falta definir la variable houseShape y su tipo (conviene revisar las pruebas unitarias para eso, no basta con colocar Shape)
+--Para la localizacion es probable que su firma deba pasar de (Int,Int) a Point 
+data Haskellium = Haskellium {name :: String,
+                              lastname1 :: String,
+                              lastname2 :: String,
+                              location :: (Int,Int)
+                              }
+--Variable global guia
+hiroshi = (Haskellium{name = "Hiroshi", lastname1 = "Yoshimura", lastname2 = "non-existent", location = (19,93)})
+
 
 --Funcion para regresar el hijo de dos Haskelliums dado su nombre
 son :: Haskellium -> Haskellium -> String -> Haskellium
