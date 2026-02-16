@@ -58,7 +58,7 @@ distance (x1, y1) (x2, y2) = sqrt ((x2 - x1)^2 + (y2 - y1)^2)
 
 --Funcion para calcular la distancia de un punto al origen
 from0 :: Point -> Float
-from0 = undefined
+from0 (x, y) = sqrt ((x ^ 2) + (y ^ 2)) 
 
 --Ejercicio 3
 --Falta definir la variable houseShape y su tipo (conviene revisar las pruebas unitarias para eso, no basta con colocar Shape)
