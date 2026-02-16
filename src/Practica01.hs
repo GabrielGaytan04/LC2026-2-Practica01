@@ -50,11 +50,11 @@ perimeter (Trapeze maximum minimum heightTrap) = maximum + minimum + (2 * height
 
 
 --Ejercicio 2 (Les toca arreglar el sinonimo)
-type Point = Shape
+type Point = (Float, Float)
 
 -- Funcion para calcular la distancia entre dos puntos
 distance :: Point -> Point -> Float
-distance = undefined 
+distance (x1, y1) (x2, y2) = sqrt ((x2 - x1)^2 + (y2 - y1)^2)
 
 --Funcion para calcular la distancia de un punto al origen
 from0 :: Point -> Float
