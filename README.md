@@ -26,8 +26,8 @@ En esta sección deben eliminar esta línea de texto, borrar la leyenda "Integra
     - No. de Cuenta: 
 + Integrante 2
     - No. de Cuenta: 
-+ Integrante 3
-    - No. de Cuenta: 
++ De La Cruz Reyes Jesús Ramón
+    - No. de Cuenta: 320276646
 
 ## Comentarios
 
