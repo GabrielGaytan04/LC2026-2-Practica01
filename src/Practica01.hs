@@ -8,7 +8,7 @@ data Shape = Circle Float | --representa el radio
             Rectangle Float Float| --representa base y altura
             Triangle Float | --representa un lado
             Trapeze Float Float Float --representa base mayor, base menor y altura
-            deriving (Show)
+            deriving (Show,Eq)
 
 {-
 Nota: Para el calculo de perimetro, cambie el nombre de los parametros 
@@ -45,6 +45,8 @@ perimeter (Triangle sideT) = 3 * sideT
 {-
 Al trabajar con un isoceles, podemos asumir que la altura es igual al lado c que falta 
 Fuente de consulta: https://www.universoformulas.com/matematicas/geometria/perimetro-trapecio/
+NOTA: Difiere con los resultados del test en unas cuantas decimas. Asi que conviene revisar
+ese punto.
 -}
 perimeter (Trapeze maximum minimum heightTrap) = maximum + minimum + (2 * heightTrap)
 
@@ -61,15 +63,15 @@ from0 :: Point -> Float
 from0 = undefined
 
 --Ejercicio 3
---Falta definir la variable houseShape y su tipo (conviene revisar las pruebas unitarias para eso, no basta con colocar Shape)
 --Para la localizacion es probable que su firma deba pasar de (Int,Int) a Point 
 data Haskellium = Haskellium {name :: String,
                               lastname1 :: String,
                               lastname2 :: String,
-                              location :: (Int,Int)
+                              location :: (Int,Int),
+                              houseShape  :: Shape
                               }
 --Variable global guia
-hiroshi = (Haskellium{name = "Hiroshi", lastname1 = "Yoshimura", lastname2 = "non-existent", location = (19,93)})
+--hiroshi = (Haskellium{name = "Hiroshi", lastname1 = "Yoshimura", lastname2 = "non-existent", location = (19,93)})
 
 
 --Funcion para regresar el hijo de dos Haskelliums dado su nombre
@@ -94,8 +96,16 @@ myFoldr :: (a -> b -> b) -> b -> [a] -> b
 myFoldr = undefined
 
 --Ejercicio 3
+
 conjuntoPotencia :: [a] -> [[a]]
-conjuntoPotencia = undefined
+--Caso base (Lista vacia)
+conjuntoPotencia [] = [[]]
+--Caso recursivo 
+{-
+La definicion solocita solo una concatenacion entre dos lista: 
+Una lista de listas por comprension de los elementos que contengan al primer elemento y la lista de listas  que no contenga al primero.
+-}
+conjuntoPotencia (x:xs) = [x : ys | ys <- conjuntoPotencia xs] ++ conjuntoPotencia xs  
 
 --ARBOLES
 
