@@ -48,7 +48,7 @@ Fuente de consulta: https://www.universoformulas.com/matematicas/geometria/perim
 NOTA: Difiere con los resultados del test en unas cuantas decimas. Asi que conviene revisar
 ese punto.
 -}
-perimeter (Trapeze maximum minimum heightTrap) = maximum + minimum + (2 * heightTrap)
+perimeter (Trapeze maximito minimito heightTrap) = maximito + minimito + (2 * heightTrap)
 
 
 --Ejercicio 2 (Les toca arreglar el sinonimo)
@@ -65,8 +65,8 @@ from0 = undefined
 --Ejercicio 3
 --Para la localizacion es probable que su firma deba pasar de (Int,Int) a Point 
 data Haskellium = Haskellium {name :: String,
-                              lastname1 :: String,
-                              lastname2 :: String,
+                              lastName1 :: String,
+                              lastName2 :: String,
                               location :: (Int,Int),
                               houseShape  :: Shape
                               }
