@@ -101,9 +101,11 @@ conjuntoPotencia = undefined
 --ARBOLES
 
 --Implementacion
-
-data OneTwoTree a = Undefinedd
+-- a: de arbol
+data OneTwoTree a = Vacio | Nodo1 (OneTwoTree a) | Nodo2 (OneTwoTree a) (OneTwoTree a)
 
 --Ejercicio 2
 suma :: OneTwoTree Int -> Int
-suma = undefined
+suma Vacio = 0
+suma (Nodo1 v tree) = e + suma tree
+suma (Nodo2 v tree1 tree2) = e + suma tree1 + suma tree2
