@@ -92,7 +92,7 @@ palindromo = undefined
 --Ejercicio 2
 myFoldr :: (a -> b -> b) -> b -> [a] -> b 
 myFoldr f r [] = r
-myFoldr f r [a:xs] = f r (myFoldr f r xs)
+myFoldr f r (a:xs) = f a (myFoldr f r xs)
 
 --Ejercicio 3
 conjuntoPotencia :: [a] -> [[a]]
