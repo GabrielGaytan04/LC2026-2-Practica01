@@ -51,38 +51,47 @@ ese punto.
 perimeter (Trapeze maximito minimito heightTrap) = maximito + minimito + (2 * heightTrap)
 
 
---Ejercicio 2 (Les toca arreglar el sinonimo)
-type Point = Shape
+--Ejercicio 2 
+type Point = (Float, Float)
 
 -- Funcion para calcular la distancia entre dos puntos
 distance :: Point -> Point -> Float
-distance = undefined 
+distance (x1, y1) (x2, y2) = sqrt (((x2 - x1)**2) + ((y2 - y1)**2))
 
 --Funcion para calcular la distancia de un punto al origen
 from0 :: Point -> Float
-from0 = undefined
+from0 (x, y) = sqrt ((x ** 2) + (y ** 2)) 
 
 --Ejercicio 3
---Para la localizacion es probable que su firma deba pasar de (Int,Int) a Point 
 data Haskellium = Haskellium {name :: String,
                               lastName1 :: String,
                               lastName2 :: String,
-                              location :: (Int,Int),
+                              location :: Point,
                               houseShape  :: Shape
                               }
---Variable global guia
---hiroshi = (Haskellium{name = "Hiroshi", lastname1 = "Yoshimura", lastname2 = "non-existent", location = (19,93)})
 
+{-NOTA: Hola, si quieres revisar el funcionamiento de un haskellium, escribimos un par de ejemplos.
+En particular, si deseas probar una funcion escribe el nombre de esta y alguno de las personas aqui.
+(Recomendamos que lo pruebes con HouseCost, ya que los datos coinciden con los visstos en las pruebas unitarias)
+-}                              
+akira = Haskellium {name = "Akira", lastName1 = "Yamaoka", lastName2 = "non-Existent", location = (19,97), houseShape = Square 10}
+hiroshi = Haskellium {name = "Hiroshi", lastName1 = "Yoshimura", lastName2 = "non-Existent", location = (19,93), houseShape = Rectangle 20 8 }
 
 --Funcion para regresar el hijo de dos Haskelliums dado su nombre
 son :: Haskellium -> Haskellium -> String -> Haskellium
-son = undefined
-
+son p1 p2 childName = Haskellium{
+                          name = childName,
+                          lastName1 = lastName1 p1,
+                          lastName2 = lastName2 p2,
+                          location = location p1,
+                          houseShape = houseShape p1
+                      }
 --Funcion para calcular las unidades para construir la casa de un Haskellium
 houseCost :: Haskellium -> Float
-houseCost = undefined
+houseCost haskman = (area(houseShape haskman)) + ((perimeter(houseShape haskman)) * 2.5) 
 
 --Funcion para calcular el tiempo que le toma a un Haskellium para llegar a su trabajo
+--PENDIENTE
 timeToWork :: Haskellium -> Float
 timeToWork = undefined
 
@@ -92,8 +101,10 @@ palindromo :: String -> Bool
 palindromo = undefined
 
 --Ejercicio 2
-myFoldr :: (a -> b -> b) -> b -> [a] -> b
-myFoldr = undefined
+--La implementacion actual rroja warning porque "la variale f no es usada" (De acuerdo con el interprete)
+myFoldr :: (a -> b -> b) -> b -> [a] -> b 
+myFoldr f r [] = r
+myFoldr f r (a:xs) = f a (myFoldr f r xs)
 
 --Ejercicio 3
 
@@ -102,17 +113,25 @@ conjuntoPotencia :: [a] -> [[a]]
 conjuntoPotencia [] = [[]]
 --Caso recursivo 
 {-
-La definicion solocita solo una concatenacion entre dos lista: 
+La definicion solicita solo una concatenacion entre dos lista: 
 Una lista de listas por comprension de los elementos que contengan al primer elemento y la lista de listas  que no contenga al primero.
 -}
 conjuntoPotencia (x:xs) = [x : ys | ys <- conjuntoPotencia xs] ++ conjuntoPotencia xs  
 
 --ARBOLES
+--PENDIENTE DE CORREGIR 
+--a: Definicion del arbol
+{-
+ La implementacion actual compila, pero no pasa los tests, en parte es por la definicion de OneTwoTree.
+ La definicion no esta implementada de forma recursiva
+-} 
+data OneTwoTree a = Void | Nodo1 a (OneTwoTree a) | Nodo2 a (OneTwoTree a) (OneTwoTree a)
 
---Implementacion
-
-data OneTwoTree a = Undefinedd
-
---Ejercicio 2
+--b: Suma de elementos
+{-
+ La definicion de suma si esta implementada de forma recursiva 
+-}
 suma :: OneTwoTree Int -> Int
-suma = undefined
+suma Void = 0
+suma (Nodo1 v tree) = v + suma tree 
+suma (Nodo2 v tree1 tree2) = v + suma tree1 + suma tree2
