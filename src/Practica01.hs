@@ -74,7 +74,12 @@ hiroshi = (Haskellium{name = "Hiroshi", lastname1 = "Yoshimura", lastname2 = "no
 
 --Funcion para regresar el hijo de dos Haskelliums dado su nombre
 son :: Haskellium -> Haskellium -> String -> Haskellium
-son = undefined
+son p1 p2 childName = Haskellium{
+                          name = childName,
+                          lastname1 = lastname1 p1,
+                          lastname2 = lastname2 p2,
+                          location = location p1
+                      }
 
 --Funcion para calcular las unidades para construir la casa de un Haskellium
 houseCost :: Haskellium -> Float
