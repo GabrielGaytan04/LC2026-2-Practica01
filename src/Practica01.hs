@@ -90,15 +90,29 @@ son p1 p2 childName = Haskellium{
 houseCost :: Haskellium -> Float
 houseCost haskman = (area(houseShape haskman)) + ((perimeter(houseShape haskman)) * 2.5) 
 
+
+-- Funcion auxiliar para determinar la velocidad del haskellium.
+-- Para la funcion timeToWork
+-- Abrevie haskellium a hk.
+speed :: Haskellium -> Float
+speed hk = if home < 300 then 30 else 70
+             where home = from0 (location hk)
+             
 --Funcion para calcular el tiempo que le toma a un Haskellium para llegar a su trabajo
---PENDIENTE
 timeToWork :: Haskellium -> Float
-timeToWork = undefined
+timeToWork haskellium = from0 (location haskellium) / speed haskellium
+
 
 --LISTAS Y FUNCIONES
 --Ejercicio 1
 palindromo :: String -> Bool
-palindromo = undefined
+palindromo (x:xs) = if (x:xs) == voltear (x:xs) then True else False
+
+-- Funcion auxiliar que voltea una lista, empieza del final al inicio
+-- Para el ejercicio 1, funcion palindromo
+voltear :: [a] -> [a]
+voltear (x:[]) = [x]
+voltear (x:xs) = voltear xs ++ [x]
 
 --Ejercicio 2
 --La implementacion actual rroja warning porque "la variale f no es usada" (De acuerdo con el interprete)
@@ -119,19 +133,18 @@ Una lista de listas por comprension de los elementos que contengan al primer ele
 conjuntoPotencia (x:xs) = [x : ys | ys <- conjuntoPotencia xs] ++ conjuntoPotencia xs  
 
 --ARBOLES
---PENDIENTE DE CORREGIR 
+
 --a: Definicion del arbol
 {-
- La implementacion actual compila, pero no pasa los tests, en parte es por la definicion de OneTwoTree.
- La definicion no esta implementada de forma recursiva
+ La implementacion actual compila.
 -} 
-data OneTwoTree a = Void | Nodo1 a (OneTwoTree a) | Nodo2 a (OneTwoTree a) (OneTwoTree a)
+data OneTwoTree a = Void | Node a (OneTwoTree a) | Branch a (OneTwoTree a) (OneTwoTree a)
 
---b: Suma de elementos
 {-
- La definicion de suma si esta implementada de forma recursiva 
+--Ejercicio 2
+-- v el valor actual
 -}
 suma :: OneTwoTree Int -> Int
 suma Void = 0
-suma (Nodo1 v tree) = v + suma tree 
-suma (Nodo2 v tree1 tree2) = v + suma tree1 + suma tree2
+suma (Node v tree) = v + suma tree 
+suma (Branch v t1 t2) = v + suma t1 + suma t2
