@@ -29,7 +29,7 @@ Tests de from0
   Distancia del origen al punto (10,25) [✔]
   Distancia del origen al punto (60,0) [✔]
 Tests de Haskellium
-  Hijo de edu y fer [✘]
+  Hijo de edu y fer [✔]
   Costo casa de edu [✔]
   Costo casa de gael [✔]
   Tiempo al trabajo de edu [✔]
@@ -56,25 +56,18 @@ Failures:
        expected: 13.7
         but got: 13.0
 
-  To rerun use: --match "/Tests de perimeter/Trapeze con b1=2, b2=5, h=3/" --seed 2060777129
+  To rerun use: --match "/Tests de perimeter/Trapeze con b1=2, b2=5, h=3/" --seed 791649613
 
   test/Practica01Test.hs:76:64: 
   2) Tests de perimeter Trapeze con b1=2.5, b2=5.5, h=7.2
        expected: 22.7
         but got: 22.4
 
-  To rerun use: --match "/Tests de perimeter/Trapeze con b1=2.5, b2=5.5, h=7.2/" --seed 2060777129
+  To rerun use: --match "/Tests de perimeter/Trapeze con b1=2.5, b2=5.5, h=7.2/" --seed 791649613
 
-  test/Practica01Test.hs:101:29: 
-  3) Tests de Haskellium Hijo de edu y fer
-       expected: "Solis"
-        but got: "Espinoza"
+Randomized with seed 791649613
 
-  To rerun use: --match "/Tests de Haskellium/Hijo de edu y fer/" --seed 2060777129
-
-Randomized with seed 2060777129
-
-Finished in 0.0024 seconds
-39 examples, 3 failures
+Finished in 0.0096 seconds
+39 examples, 2 failures
 Test suite Practica01-test: FAIL
 Test suite logged to: /home/angelg/Desktop/SxtoSem_Adelante/LOGICA_COMPUTACIONAL/practicas/LC2026-2-Practica01/dist-newstyle/build/aarch64-linux/ghc-9.4.7/Practica01-0.1.0.0/t/Practica01-test/test/Practica01-0.1.0.0-Practica01-test.log

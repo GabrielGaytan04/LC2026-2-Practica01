@@ -82,10 +82,12 @@ son :: Haskellium -> Haskellium -> String -> Haskellium
 son p1 p2 childName = Haskellium{
                           name = childName,
                           lastName1 = lastName1 p1,
-                          lastName2 = lastName2 p2,
+                          lastName2 = lastName1 p2,
                           location = location p1,
                           houseShape = houseShape p1
                       }
+                      
+                
 --Funcion para calcular las unidades para construir la casa de un Haskellium
 houseCost :: Haskellium -> Float
 houseCost haskman = (area(houseShape haskman)) + ((perimeter(houseShape haskman)) * 2.5) 
@@ -101,7 +103,6 @@ speed hk = if home < 300 then 30 else 70
 --Funcion para calcular el tiempo que le toma a un Haskellium para llegar a su trabajo
 timeToWork :: Haskellium -> Float
 timeToWork haskellium = from0 (location haskellium) / speed haskellium
-
 
 --LISTAS Y FUNCIONES
 --Ejercicio 1

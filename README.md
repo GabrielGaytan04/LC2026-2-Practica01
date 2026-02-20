@@ -24,11 +24,23 @@ En esta sección deben eliminar esta línea de texto, borrar la leyenda "Integra
 
 + Ángel Gabriel Perez Gaytan 
     - No. de Cuenta: 320052947
-+ Integrante 2
-    - No. de Cuenta: 
-+ Integrante 3
-    - No. de Cuenta: 
++ De La Cruz Reyes Jesús Ramón
+    - No. de Cuenta: 320276646
++ López Cervantes Joshua Ismael
+    - No. de Cuenta: 321124399 
 
 ## Comentarios
 
-Recuerden que opcionalmente pueden agregar un comentario (ver los lineamientos de entrega). Si es el caso, borren esta línea y dejen su comentario.
+Joshua :: Lo que más se me dificultó fue intentar probar los test de la práctica.
+       	  Y sobre la implementación de la práctica, creo que
+	  lo que más se me complicó fue entender la sintaxis, en particular cuando es del tipo:
+	  nombre_funcion parametro = ...
+	  Pero se logró.
+
+Gabriel :: Lo que mas se me llego a complicar fue re-adaptarme a la sintaxis de Haskell.
+	   Vengo tan familiarizado con el paradigma orientado a objetos que reentrenar a mi 
+	   cerebro a esta forma de programar ha sido algo mas tardado de lo que esperaba. En particular, el test
+	   del perimetro de trapecio fue lo mas frustrante porque las formulas que encontre seguian siendo menores 
+	   al resultado esperado del test.
+
+
