@@ -107,11 +107,11 @@ conjuntoPotencia = undefined
 
 --Implementacion
 -- a: de arbol
-data OneTwoTree a = Vacio | Nodo1 a (OneTwoTree a) | Nodo2 a (OneTwoTree a) (OneTwoTree a)
+data OneTwoTree a = Void | Node a (OneTwoTree a) | Branch a (OneTwoTree a) (OneTwoTree a)
 
 --Ejercicio 2
 -- v el valor actual
 suma :: OneTwoTree Int -> Int
-suma Vacio = 0
-suma (Nodo1 v tree) = v + suma tree 
-suma (Nodo2 v tree1 tree2) = v + suma tree1 + suma tree2
+suma Void = 0
+suma (Node v tree) = v + suma tree 
+suma (Branch v t1 t2) = v + suma t1 + suma t2

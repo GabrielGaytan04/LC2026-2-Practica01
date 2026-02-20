@@ -99,6 +99,6 @@ test-suite Practica01-test
 
     -- Test dependencies.
     build-depends:
-        base ^>=4.21.0.0,
+        base ^>=4.21.0.0
         hspec,
         Practica01
